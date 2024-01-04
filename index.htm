@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Financieras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Calculadoras Financieras</h1>
+        <nav>
+            <button onclick="mostrarCalculadora('plazoFijo')">Plazo Fijo</button>
+            <button onclick="mostrarCalculadora('iva')">Calculadora de IVA</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="calculator" id="plazoFijoCalculator">
+            <h2>Calculadora de Plazo Fijo</h2>
+            <label for="interestRate">Tasa de Interés (%):</label>
+            <input type="number" id="interestRate" step="0.01" placeholder="Ingrese la tasa de interés">
+
+            <label for="period">Días o Meses:</label>
+            <input type="number" id="period" placeholder="Ingrese la cantidad de días o meses">
+
+            <label for="amount">Monto Ingresado:</label>
+            <input type="number" id="amount" placeholder="Ingrese el monto">
+
+            <button onclick="calcularPlazoFijo()">Calcular</button>
+
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+        <div class="calculator" id="ivaCalculator" style="display: none;">
+            <h2>Calculadora de IVA</h2>
+            <label for="precioSinIVA">Precio sin IVA:</label>
+            <input type="number" id="precioSinIVA" placeholder="Ingrese el precio sin IVA">
+
+            <label for="tasaIVA">Tasa de IVA (%):</label>
+            <select id="tasaIVA">
+                <option value="27">27%</option>
+                <option value="21">21%</option>
+                <option value="10.5">10.5%</option>
+                <option value="2.5">2.5%</option>
+            </select>
+
+            <button onclick="calcularIVA()">Calcular</button>
+
+            <div id="ivaResult"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
