@@ -13,6 +13,7 @@
         <nav>
             <button onclick="mostrarCalculadora('plazoFijo')">Plazo Fijo</button>
             <button onclick="mostrarCalculadora('iva')">Calculadora de IVA</button>
+            <button onclick="mostrarCalculadora('financiera')">50/30/20</button>
         </nav>
     </header>
 
@@ -53,6 +54,29 @@
             <div id="ivaResult"></div>
         </div>
     </div>
+    <div class="calculator" id="financieraCalculator" style="display: none;">
+        <h2>Calculadora Financiera</h2>
+        <label for="salary">Ingresa tu sueldo mensual:</label>
+        <input type="number" id="salary" placeholder="Ingrese su sueldo">
+        <button onclick="calcularFinanciera()">Calcular</button>
+
+        <div id="result" class="hidden">
+            <h2>Desglose de Gastos</h2>
+            <div>
+                <span>Gastos Básicos (50%): </span>
+                <span id="basicExpenses"></span>
+            </div>
+            <div>
+                <span>Gastos Personales (30%): </span>
+                <span id="personalExpenses"></span>
+            </div>
+            <div>
+                <span>Ahorros/Deudas (20%): </span>
+                <span id="savingsDebts"></span>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

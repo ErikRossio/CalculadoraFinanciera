@@ -16,11 +16,42 @@ function mostrarCalculadora(calculadora) {
     if (calculadora === 'plazoFijo') {
         document.getElementById('plazoFijoCalculator').style.display = 'block';
         document.getElementById('ivaCalculator').style.display = 'none';
+        document.getElementById('financieraCalculator').style.display = 'none';
     } else if (calculadora === 'iva') {
         document.getElementById('plazoFijoCalculator').style.display = 'none';
         document.getElementById('ivaCalculator').style.display = 'block';
+        document.getElementById('financieraCalculator').style.display = 'none';
+    } else if (calculadora === 'financiera') {
+        document.getElementById('plazoFijoCalculator').style.display = 'none';
+        document.getElementById('ivaCalculator').style.display = 'none';
+        document.getElementById('financieraCalculator').style.display = 'block';
     }
 }
+
+function calcularFinanciera() {
+        const salary = parseFloat(document.getElementById('salary').value);
+
+        if (isNaN(salary) || salary <= 0) {
+            alert('Por favor, ingresa un sueldo válido.');
+            return;
+        }
+        const basicExpenses = (salary * 0.5).toFixed(2);
+        const personalExpenses = (salary * 0.3).toFixed(2);
+        const savingsDebts = (salary * 0.2).toFixed(2);
+
+        document.getElementById('basicExpenses').textContent = `$${basicExpenses}`;
+        document.getElementById('personalExpenses').textContent = `$${personalExpenses}`;
+        document.getElementById('savingsDebts').textContent = `$${savingsDebts}`;
+
+        document.getElementById('result').classList.remove('hidden');
+    }
+
+    // Mostrar los resultados
+    document.getElementById('basicExpenses').textContent = `$${basicExpenses}`;
+    document.getElementById('personalExpenses').textContent = `$${personalExpenses}`;
+    document.getElementById('savingsDebts').textContent = `$${savingsDebts}`;
+
+    document.getElementById('result').classList.remove('hidden');
 
 function calcularIVA() {
     var precioSinIVA = parseFloat(document.getElementById('precioSinIVA').value);
@@ -35,7 +66,3 @@ function calcularIVA() {
     `;
 }
 
-function mostrarCalculadora(calculadora) {
-    document.getElementById('plazoFijoCalculator').style.display = calculadora === 'plazoFijo' ? 'block' : 'none';
-    document.getElementById('ivaCalculator').style.display = calculadora === 'iva' ? 'block' : 'none';
-}
